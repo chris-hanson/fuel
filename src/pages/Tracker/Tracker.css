@@ -1,0 +1,81 @@
+.Tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.Tracker-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  gap: 30px;
+  padding-right: 15px;
+}
+
+.Tracker-fuel-bar {
+  margin-top: 30px;
+  background: rgba(0, 0, 0, 0.66);
+  width: 80px;
+  height: 370px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.Tracker-fuel-bar-inner {
+  position: absolute;
+  height: 50%;
+  background: var(--primary);
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.Tracker-fuel-bar-percent {
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  right: 0;
+  left: 0;
+}
+
+.Tracker-detail {
+  flex-grow: 1;
+}
+
+.Tracker-detail h1 {
+  font-size: 28px;
+  margin-top: 30px;
+}
+
+.Tracker-buttons {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 20px;
+}
+
+.Tracker-clear-btn {
+  background-color: var(--danger);
+}
+
+.Tracker-clear-btn svg,
+.Tracker-edit-btn svg {
+  margin-left: 3px;
+}
+
+.Tracker-edit-btn {
+  background-color: var(--highlight);
+  grid-column: 1 / 3;
+}
+
+.Tracker-edit-form {
+  grid-column: 1 / 3;
+  display: flex;
+  gap: 6px;
+}
+
+.Tracker-edit-form input {
+  margin-right: 5px;
+  width: 120px;
+}

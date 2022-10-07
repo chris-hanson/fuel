@@ -32,7 +32,9 @@ function Onboard() {
         />
       </p>
 
-      <p>A good guide, 2x your body weight (in kg)</p>
+      <p>
+        <small>A good guide, 2x your body weight (in kg). </small>
+      </p>
 
       {target && (
         <button className="Onboard-next" type="button" onClick={handleSetTarget}>

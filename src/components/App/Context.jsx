@@ -2,11 +2,14 @@ import React, { createContext, useContext, useReducer, useEffect, useMemo } from
 
 const DEFAULT_STATE = {
   target: 0,
-  logs: [],
+  logs: {},
 }
 
 const ACTIONS = {
   SET_TARGET: "SET_TARGET",
+  ADD_EMPTY_LOG: "ADD_EMPTY_LOG",
+  ADD_PROTEIN: "ADD_PROTEIN",
+  CLEAR_PROTEIN: "CLEAR_PROTEIN",
 }
 
 function appReducer(state, { type, payload }) {
@@ -15,6 +18,28 @@ function appReducer(state, { type, payload }) {
       ...state,
       target: payload,
     }
+  }
+
+  if (type === ACTIONS.ADD_EMPTY_LOG) {
+    return {
+      ...state,
+      logs: {
+        ...state.logs,
+        [payload]: 0,
+      },
+    }
+  }
+
+  if (type === ACTIONS.ADD_PROTEIN) {
+    const logs = { ...state.logs }
+    logs[payload.id] = Number(logs[payload.id]) + payload.value
+    return { ...state, logs }
+  }
+
+  if (type === ACTIONS.CLEAR_PROTEIN) {
+    const logs = { ...state.logs }
+    logs[payload] = 0
+    return { ...state, logs }
   }
 
   return state
