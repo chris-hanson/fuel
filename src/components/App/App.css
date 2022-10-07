@@ -1,0 +1,15 @@
+.App {
+  color: var(--text-color);
+  width: 100vw;
+  max-width: 480px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-grow: 1;
+}
+
+.App-container {
+}
