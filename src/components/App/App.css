@@ -9,7 +9,14 @@
   overflow-y: auto;
   display: flex;
   flex-grow: 1;
+  padding: 0 30px;
 }
 
-.App-container {
+.App-logo {
+  letter-spacing: -2px;
+  opacity: 0.66;
+}
+
+.App-next-ico {
+  margin-left: 6px;
 }

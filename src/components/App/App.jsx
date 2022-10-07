@@ -1,12 +1,27 @@
 import React from "react"
+
+import { GiMuscleUp } from "react-icons/gi"
+
 import "./App.css"
 
 function App() {
   return (
     <main className="App">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed vero exercitationem tenetur
-      molestias doloribus, quod sint optio debitis minus explicabo suscipit? Odit, officia fuga.
-      Ducimus aspernatur eum deserunt maiores dolore?
+      <h1>
+        Welcome to <i className="App-logo">FUEL</i>
+      </h1>
+      <p>
+        Let&apos;s be real, the only macro ever worth tracking is <strong>PROTEIN</strong>. This
+        dead simple intake calculator is all you need to hit those goals and make them gains.
+      </p>
+      <p>
+        Enter your intake goal <input type="number" placeholder="in grams" />
+      </p>
+      <p>A good guide, 2x your body weight (in kg)</p>
+
+      <button className="App-next" type="button">
+        Get started <GiMuscleUp className="App-next-ico" />
+      </button>
     </main>
   )
 }
