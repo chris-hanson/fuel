@@ -6,3 +6,27 @@
 .Onboard-next-ico {
   margin-left: 6px;
 }
+
+.Onboard-install {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+}
+
+.Onboard-install-btn {
+}
+
+.Onboard-install-ico {
+  color: white;
+  margin-right: 4px;
+}
+
+.Onboard-install-ico path {
+  stroke: white;
+}
+
+.Onboard-ios-message {
+  text-align: center;
+  display: block;
+}

@@ -1,5 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { GiMuscleUp } from "react-icons/gi"
+import { GrInstall } from "react-icons/gr"
+import { FiShare } from "react-icons/fi"
 
 import { ACTIONS, useAppContext } from "../../components/App/Context"
 
@@ -7,11 +9,30 @@ import "./Onboard.css"
 
 function Onboard() {
   const [target, setTarget] = useState("")
+  const [installEvent, setInstallEvent] = useState()
+  const [showIOSMessage, setShowIOSMessage] = useState()
   const { dispatch } = useAppContext()
 
   function handleSetTarget() {
     dispatch({ type: ACTIONS.SET_TARGET, payload: target })
   }
+
+  function install() {
+    if (installEvent) return installEvent.prompt()
+    return setShowIOSMessage(true)
+  }
+
+  useEffect(() => {
+    function eventHandler(event) {
+      setInstallEvent(event)
+    }
+
+    window.addEventListener("beforeinstallprompt", eventHandler)
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", eventHandler)
+    }
+  }, [setInstallEvent])
 
   return (
     <>
@@ -37,10 +58,22 @@ function Onboard() {
       </p>
 
       {target && (
-        <button className="Onboard-next" type="button" onClick={handleSetTarget}>
+        <button type="button" onClick={handleSetTarget}>
           Get started <GiMuscleUp className="Onboard-next-ico" />
         </button>
       )}
+
+      <div className="Onboard-install">
+        {showIOSMessage ? (
+          <small className="Onboard-ios-message">
+            To install on iOS click <FiShare /> and&nbsp;<strong>Add To Home Screen</strong>
+          </small>
+        ) : (
+          <button className="Onboard-install-btn" type="button" onClick={install}>
+            <GrInstall className="Onboard-install-ico" /> Tap to install
+          </button>
+        )}
+      </div>
     </>
   )
 }
