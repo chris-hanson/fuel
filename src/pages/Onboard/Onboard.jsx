@@ -40,8 +40,8 @@ function Onboard() {
         Welcome to <i className="Onboard-logo">FUEL</i>
       </h1>
       <p>
-        Let&apos;s be real, the only macro ever worth tracking is <strong>PROTEIN</strong>. This
-        dead simple intake calculator is all you need to hit those goals and make them gains.
+        Let&apos;s be real, the only macro worth anything is <strong>PROTEIN</strong>. This dead
+        simple intake tracker is all you need to hit those goals and make dem gainz.
       </p>
       <p>
         Enter your intake goal{" "}
