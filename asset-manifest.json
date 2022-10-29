@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/fuel/static/css/main.77fa63e4.css",
+    "main.js": "/fuel/static/js/main.f05650ad.js",
+    "service-worker.js": "/fuel/service-worker.js",
+    "index.html": "/fuel/index.html",
+    "main.77fa63e4.css.map": "/fuel/static/css/main.77fa63e4.css.map",
+    "main.f05650ad.js.map": "/fuel/static/js/main.f05650ad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.77fa63e4.css",
+    "static/js/main.f05650ad.js"
+  ]
+}
