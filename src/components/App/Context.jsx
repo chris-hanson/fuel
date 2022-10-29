@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect, useMemo } from "react"
 
+const STORE_KEY = "FUEL_STATE"
+
 const DEFAULT_STATE = {
   target: 0,
   logs: {},
@@ -49,7 +51,7 @@ const AppContext = createContext()
 
 function loadState() {
   try {
-    const state = localStorage.getItem("STATE")
+    const state = localStorage.getItem(STORE_KEY)
     return state ? JSON.parse(state) : DEFAULT_STATE
   } catch (e) {
     return DEFAULT_STATE
@@ -66,7 +68,7 @@ export default function ContextProvider({ children }) {
   const [state, dispatch] = useReducer(appReducer, loadState())
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch])
 
-  useEffect(() => localStorage.setItem("STATE", JSON.stringify(state)), [state])
+  useEffect(() => localStorage.setItem(STORE_KEY, JSON.stringify(state)), [state])
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }

@@ -4,18 +4,17 @@ import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs"
 import { FaSave } from "react-icons/fa"
 
 import { ACTIONS, useAppContext } from "../../components/App/Context"
+import HistoricGraph from "./HistoricGraph/HistoricGraph"
+import getStartOfDate from "./getStartOfDate"
 
 import "./Tracker.css"
 
 function useTodaysLog() {
+  const id = getStartOfDate()
   const {
     dispatch,
     state: { logs },
   } = useAppContext()
-
-  const startOfDay = new Date()
-  startOfDay.setUTCHours(0, 0, 0, 0)
-  const id = +startOfDay
 
   useEffect(() => {
     if (!(id in logs)) dispatch({ type: ACTIONS.ADD_EMPTY_LOG, payload: id })
@@ -29,7 +28,7 @@ function Tracker() {
   const [newTarget, setNewTarget] = useState("")
   const {
     dispatch,
-    state: { target },
+    state: { target, logs },
   } = useAppContext()
 
   const today = useTodaysLog()
@@ -120,7 +119,7 @@ function Tracker() {
         </div>
       </div>
       <div>
-        <h2>Last 7 days</h2>
+        <HistoricGraph logs={logs} target={target} />
       </div>
     </div>
   )
